@@ -114,6 +114,7 @@ export const updateProfile = async (request, response, next) => {
         firstName,
         lastName,
         profileSetup: true,
+        color
       },
       { new: true, runValidator: true }
     );
@@ -176,6 +177,17 @@ export const removeProfileImage = async (request, response, next) => {
     await user.save();
 
     return response.status(200).send("Profile image remove successfully.");
+  } catch (error) {
+    console.log(error);
+    return response.status(500).send("Internal Server Error");
+  }
+};
+
+export const logOut = async (request, response, next) => {
+  try {
+    response.cookie("jwt","", {maxAge: 1, secure:true, sameSite:"None"})
+
+    return response.status(200).send("Logout successfully.");
   } catch (error) {
     console.log(error);
     return response.status(500).send("Internal Server Error");

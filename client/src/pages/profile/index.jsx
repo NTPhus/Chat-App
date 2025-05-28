@@ -32,7 +32,7 @@ const Profile = () => {
       setLastName(userInfo.lastName);
       setSelectedColor(userInfo.color);
     }
-    if(userInfo.image){
+    if (userInfo.image) {
       setImage(`${HOST}/${userInfo.image}`);
     }
   }, [userInfo]);
@@ -59,6 +59,7 @@ const Profile = () => {
         );
         if (response.status === 200 && response.data) {
           setUserInfo({ ...response.data });
+
           toast.success("Profile updated successfully.");
           navigate("/chat");
         }
@@ -89,8 +90,8 @@ const Profile = () => {
       const response = await apiClient.post(ADD_PROFILE_IMAGE_ROUTE, formData, {
         withCredentials: true,
       });
-      if(response.status === 200 && response.data.image){
-        setUserInfo({...userInfo, image: response.data.image});
+      if (response.status === 200 && response.data.image) {
+        setUserInfo({ ...userInfo, image: response.data.image });
         toast.success("Image updated successfully.");
       }
     }
@@ -98,9 +99,11 @@ const Profile = () => {
 
   const handleDeleteImage = async () => {
     try {
-      const response = await apiClient.delete(REMOVE_PROFILE_IMAGE_ROUTE, {withCredentials: true});
-      if(response.status === 200){
-        setUserInfo({...userInfo, image: null});
+      const response = await apiClient.delete(REMOVE_PROFILE_IMAGE_ROUTE, {
+        withCredentials: true,
+      });
+      if (response.status === 200) {
+        setUserInfo({ ...userInfo, image: null });
         toast.success("Image removed successfull.");
         setImage(null);
       }

@@ -13,13 +13,12 @@ import { useAppStore } from "../store";
 
 const Auth = () => {
   const navigate = useNavigate();
-  const { setUserInfo } = useAppStore()
+  const { setUserInfo } = useAppStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const validateLogin = () => {
-    console.log(email.length);
     if (!email.length) {
       toast.error("Email is required.");
       return false;
@@ -49,18 +48,21 @@ const Auth = () => {
   };
 
   const handleLogin = async () => {
-    if (validateLogin()) {
-      const response = await apiClient.post(
-        LOGIN_ROUTE,
-        { email, password },
-        { withCredentials: true }
-      );
-      if(response.data.user.id){
-        setUserInfo(response.data.user);
-        if(response.data.user.profileSetup) navigate("/chat");
-        else navigate("/profile");
+    try {
+      if (validateLogin()) {
+        const response = await apiClient.post(
+          LOGIN_ROUTE,
+          { email, password },
+          { withCredentials: true }
+        );
+        if (response.data.user.id) {
+          setUserInfo(response.data.user);
+          if (response.data.user.profileSetup) navigate("/chat");
+          else navigate("/profile");
+        }
       }
-      console.log(response);
+    } catch (error) {
+      toast.error(error.response.data);
     }
   };
 
