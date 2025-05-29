@@ -72,39 +72,37 @@ realtime-chat/
 ### 1. Clone project
 git clone https://github.com/[yourusername]/realtime-chat.git
 cd realtime-chat
-2. Cài đặt backend
-bash
-Sao chép
-Chỉnh sửa
+
+---
+
+
+### 2. Cài đặt backend
 cd server
 npm install
-3. Cài đặt frontend
-bash
-Sao chép
-Chỉnh sửa
+
+---
+
+
+### 3. Cài đặt frontend
 cd ../client
 npm install
-4. Thiết lập biến môi trường
-Tạo file .env trong thư mục server/ với nội dung:
 
-env
-Sao chép
-Chỉnh sửa
+---
+
+
+### 4. Thiết lập môi trường
+Tạo file .env trong thư mục server/ với nội dung:
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/realtime-chat
 JWT_SECRET=supersecretkey
-5. Chạy ứng dụng
-Chạy backend
 
-bash
-Sao chép
-Chỉnh sửa
+---
+
+
+### 5. Chạy ứng dụng
+**Chạy backend**
 cd server
 npm run dev
-Chạy frontend
-
-bash
-Sao chép
-Chỉnh sửa
+**Chạy frontend**
 cd ../client
 npm run dev
