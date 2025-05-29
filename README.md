@@ -44,7 +44,7 @@
 ---
 
 ## 📁 Cấu trúc thư mục
-
+```
 realtime-chat/
 ├── client/ # Frontend (React + Vite)
 │ ├── public/
@@ -63,7 +63,7 @@ realtime-chat/
 │
 ├── .env
 └── README.md
-
+```
 
 ---
 
