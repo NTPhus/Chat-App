@@ -17,7 +17,6 @@
 - 🔐 Đăng ký & Đăng nhập (có xác thực JWT)
 - 💬 Gửi và nhận tin nhắn realtime (Socket.IO)
 - 📂 Gửi hình ảnh, emoji và file
-- 🟢 Trạng thái online/offline người dùng
 - 🕘 Lưu trữ và hiển thị lịch sử trò chuyện
 - 🧑‍💻 Giao diện hiện đại, hỗ trợ responsive
 
